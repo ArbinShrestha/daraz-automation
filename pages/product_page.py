@@ -11,7 +11,7 @@ class ProductPage:
         self.cart_page_url = "https://cart.daraz.com.np/cart"
 
     def get_initial_cart_count(self):
-        """Retrieve the initial cart count before adding an item."""
+        # Retrieve the initial cart count before adding an item.
         try:
             cart_count_element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.cart_count))
             cart_count = int(cart_count_element.text) if cart_count_element.text.isdigit() else 0
@@ -22,7 +22,7 @@ class ProductPage:
             return 0
         
     def add_to_cart(self):
-        """Click the 'Add to Cart' button and close the popup."""
+        # Click the 'Add to Cart' button and close the popup. 
         try:
             # Wait for the Add to Cart button to be clickable
             add_to_cart_button = WebDriverWait(self.driver, 10).until(
@@ -50,7 +50,7 @@ class ProductPage:
         time.sleep(2)
 
     def navigate_to_cart(self):
-        """Navigate to the cart page."""
+        # Navigate to the cart page.
         try:
             self.driver.get(self.cart_page_url)
             print(f"Navigated to cart page: {self.cart_page_url}")

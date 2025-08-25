@@ -29,21 +29,21 @@ def driver():
 
 
 def test_daraz_flow(driver):
-    # Step 1: Login
+    # Login
     login_page = LoginPage(driver)
     login_page.go_to_home()
     login_page.login(EMAIL, PASSWORD)
 
-
+    # Search for product
     search_page = SearchPage(driver)
     search_page.search_product("laptop")
     search_page.filter_by_brand("Apple")
     search_page.click_first_product()
 
+    # Go to product page
     product_page = ProductPage(driver)
-    # product_page.add_to_cart()
-    # product_page.navigate_to_cart() 
 
+    # Get initial cart count
     cart_page = CartPage(driver)
     initial_cart_count = product_page.get_initial_cart_count()
 
